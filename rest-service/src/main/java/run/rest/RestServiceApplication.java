@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 // define packages 
-@SpringBootApplication(scanBasePackages = { "controller", "database", "model" })
+@SpringBootApplication(scanBasePackages = { "controller", "database", "model"})
 public class RestServiceApplication {
 
 	//https://start.spring.io

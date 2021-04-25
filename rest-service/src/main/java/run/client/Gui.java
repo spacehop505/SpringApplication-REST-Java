@@ -79,7 +79,12 @@ public class Gui {
 					price1.setText("");
 					quantity1.setText("");
 
-					table();
+					try {
+						table();
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				} catch (NumberFormatException e1) {
 					warning1.setText("NumberFormatException");
 				}
@@ -158,7 +163,12 @@ public class Gui {
 					ClientHttp clientHttp = new ClientHttp();
 					clientHttp.deleteUri(id);
 					id3.setText("");
-					table();
+					try {
+						table();
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 
 				} catch (NumberFormatException e1) {
 					warning3.setText("NumberFormatException");
@@ -273,7 +283,12 @@ public class Gui {
 					name2.setText("");
 					price2.setText("");
 					quantity2.setText("");
-					table();
+					try {
+						table();
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				} catch (NumberFormatException e1) {
 					warning2.setText("NumberFormatException");
 				}
@@ -307,7 +322,12 @@ public class Gui {
 		btnNewButton_2_1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				table();
+				try {
+					table();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnNewButton_2_1.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -334,12 +354,17 @@ public class Gui {
 		id2.setBounds(100, 340, 100, 30);
 		frame.getContentPane().add(id2);
 
-		table();
+		try {
+			table();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		frame.setVisible(true);
 	}
 
-	public void table() {
+	public void table() throws Exception{
 		ClientHttp clientHttp = new ClientHttp();
 		Iterator<Fruit> itr = clientHttp.getUri().iterator();
 

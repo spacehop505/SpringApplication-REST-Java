@@ -49,4 +49,9 @@ public class Fruit {
 		this.quantity = quantity;
 
 	}
+
+	@Override
+	public String toString() {
+		return "Fruit [id=" + id + ", name=" + name + ", price=" + price + ", quantity=" + quantity + "]";
+	}
 }

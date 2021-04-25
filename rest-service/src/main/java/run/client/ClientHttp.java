@@ -1,12 +1,16 @@
 package run.client;
 
+import java.io.IOException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
+import org.apache.http.ParseException;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
@@ -45,8 +49,9 @@ public class ClientHttp {
 	}
 
 	// @GET
-	public List<Fruit> getUri() {
+	public List<Fruit> getUri() throws run.client.MyException {
 		List<Fruit> fruitListResponse = new ArrayList<Fruit>();
+		boolean isSuccessful = true;
 		try {
 			URI uri = new URIBuilder().setScheme("http").setHost("localhost").setPort(8080).setPath("/fruit").build();
 			System.out.println(uri);
@@ -64,8 +69,14 @@ public class ClientHttp {
 			System.out.println("@GET: GUI Client");
 
 			response.close();
-		} catch (Exception e) {
-			System.out.println("Error: getUri Exception");
+		} catch (ClientProtocolException e) {
+			throw new MyException("MyException");
+		} catch (ParseException e) {
+			throw new MyException("MyException");
+		} catch (URISyntaxException e) {
+			throw new MyException("MyException");
+		} catch (IOException e) {
+			throw new MyException("MyException");
 		}
 		return fruitListResponse;
 	}
@@ -164,7 +175,7 @@ public class ClientHttp {
 		}
 	}
 
-	public void readFruits() {
+	public void readFruits() throws run.client.MyException {
 		Iterator<Fruit> itr = getUri().iterator();
 		while (itr.hasNext()) {
 			Fruit st = itr.next();

@@ -26,27 +26,25 @@ public class FruitList {
 	// READ
 	public List<Fruit> searchList(int id) {
 		List<Fruit> newList = new ArrayList<>();
-		Iterator<Fruit> itr = getList().iterator();
-		while (itr.hasNext()) {
-			Fruit st = itr.next();
-			if (st.getId() == id) {
-				newList.add(st);
+		for (Fruit item : getList()) {
+			if (item.getId() == id) {
+				newList.add(item);
 			}
 		}
 		return newList;
+
 	}
 
 	// UPDATE
 	public void updateFromList(int id, String name, double price, int quantity) {
-		Iterator<Fruit> itr = getList().iterator();
-		while (itr.hasNext()) {
-			Fruit st = itr.next();
-			if (st.getId() == id) {
-				st.setName(name);
-				st.setPrice(price);
-				st.setQuantity(quantity);
+		for (Fruit item : getList()) {
+			if (item.getId() == id) {
+				item.setName(name);
+				item.setPrice(price);
+				item.setQuantity(quantity);
 			}
 		}
+
 	}
 
 	// DELETE
@@ -58,6 +56,11 @@ public class FruitList {
 				itr.remove();
 			}
 		}
+	}
+
+	public Object findAllBrands(int i, int j) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
